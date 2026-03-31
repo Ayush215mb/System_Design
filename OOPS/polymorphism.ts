@@ -1,9 +1,9 @@
 class Animal {
-  constructor(name) {
+  constructor(public name: string) {
     this.name = name;
   }
 
-  speak() {
+  speak(): void {
     console.log(`${this.name} makes a sound`);
   }
 }
@@ -16,9 +16,9 @@ class Dog extends Animal {
   }
 }
 
-const genericAnimal = new Animal("Generic animal");
+const genericAnimal: Animal = new Animal("Generic animal");
 
-const dog = new Dog("choco");
+const dog: Dog = new Dog("choco");
 
 genericAnimal.speak();
 dog.speak();

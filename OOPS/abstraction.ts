@@ -1,45 +1,48 @@
 // abstract class
 class Shape {
-  constructor(name) {
+  constructor(public name: string) {
     this.name = name;
   }
 
-  calculateArea() {
+  calculateArea(): number | Error {
     throw new Error("Method calculateArea must be implemented");
   }
 
-  display() {
+  display(): void {
     console.log(` the area of the ${this.name} is ${this.calculateArea()}`);
   }
 }
 
 //derived class
 class Circle extends Shape {
-  constructor(radius) {
+  constructor(public radius: number) {
     super("Circle");
     this.radius = radius;
   }
 
-  calculateArea() {
+  calculateArea(): number {
     return Math.PI * this.radius * this.radius;
   }
 }
 
 //derived class
 class Rectange extends Shape {
-  constructor(width, height) {
+  constructor(
+    public width: number,
+    public height: number,
+  ) {
     super("Reactangle");
     this.width = width;
     this.height = height;
   }
 
-  calculateArea() {
+  calculateArea(): number {
     return this.height * this.width;
   }
 }
 
-const circle = new Circle(5);
+const circle: Circle = new Circle(5);
 circle.display();
 
-const Rect = new Rectange(4, 6);
+const Rect: Rectange = new Rectange(4, 6);
 Rect.display();
